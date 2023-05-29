@@ -39,6 +39,21 @@ def send_entity(source_name,id):
         return req_data
     else:
         return "Entity not found"
+
+
+@app.route('/get_template/<source_name>', methods=['GET'])
+def get_template(source_name):
+    if source_name == "sharepoint_source":
+        with open("templates/sharepoint.json", 'r') as file:
+            data = json.load(file)
+            return jsonify(data)
+
+    if source_name == "oracle_rdbms":
+        with open("templates/oracle.json", 'r') as file:
+            data = json.load(file)
+            return jsonify(data)
+
+    return jsonify({"error": "Invalid source_name"})
    
 
 
