@@ -1,0 +1,49 @@
+{
+    "source_name":"",
+    "source_type":"",
+    "source_database_server" : "",
+    "source_database_port" : "",
+    "source_database_sid" : "",
+    "source_database_name" : "",
+    "source_database_username" : "",
+    "source_database_password_secretname" : "",
+    "datalake_url":"",
+    "datalake_secretname":"",
+    "datalake_container":"",
+    "source_enabled":"",
+    "entities":[
+    {
+    "id":"",
+    "entity_name":"",
+    "entity_enabled":"",
+    "incremental_load":"",
+    "entity_schedule":"",
+    "source_schema_name":"",
+    "source_table_name":"",
+    "source_sql_query":"",
+    "silver_date_query":"",
+    "lake_zone":"",
+    "lake_department":"",
+    "lake_source_system":"",
+    "enable_lake_history":"",
+    "lake_file_extension":"",
+    "bronze_retention_in_days":"",
+    "bronze_root_path":"",
+    "silver_transform_path":"",
+    "silver_config_files":[
+    {
+    "config_file":"",
+    "table_drop_delete":""
+    }
+    ],
+    "gold_config_files":[
+    
+    {
+    "config_file":"",
+    "table_drop_delete":""
+    }
+    ]
+    }
+    ]
+    
+}

@@ -1,0 +1,149 @@
+[
+{
+"source_name":"sharepoint_source",
+"source_type":"sharepoint",
+"datalake_container":"datalake",
+"source_enabled":"1",
+"entities":[
+{
+"id":"1",
+"entity_name":"ENT_KPI_MASTER",
+"entity_enabled":"1",
+"entity_schedule":"sharepoint",
+"source_path":"sharepoint",
+"source_filename":"ENT_KPI_MASTER",
+"source_filetype":"xls",
+"source_base_url":"URL/ Documents/ENT/MASTER_KPI_SHEET/ENT_KPI_MASTER.xls')/$value",
+"lake_zone":"Bronze",
+"lake_department":"ENT",
+"lake_source_system":"Master",
+"enable_lake_history":"False",
+"lake_file_extension":".xls",
+"bronze_retention_in_days":"365",
+"bronze_root_path":"/Bronze/ENT/Master/ENT_KPI_MASTER/",
+"silver_transform_path":"/Shared/2 - data-analytics/Silver/ENT_KPI_MASTER",
+"silver_config_files":[
+{
+"config_file":"dim_ENT.yaml",
+"table_drop_delete":""
+}
+],
+"gold_config_files":[
+{
+"config_file":"",
+"table_drop_delete":""
+}
+]
+}
+]
+},
+{
+"source_name":"oracle_RDBMS",
+"source_type":"oracle_server",
+"source_database_server" : "10.38.2.100",
+"source_database_port" : "1521",
+"source_database_sid" : "REPORTDATA",
+"source_database_name" : "REPORTDATA",
+"source_database_username" : "user_azure",
+"source_database_password_secretname" : "RDBMS-ORACLEDB-PWD",
+"datalake_url":"https://azuredatalake.dfs.core.windows.net/",
+"datalake_secretname":"adls-key",
+"datalake_container":"datalake",
+"source_enabled":"0",
+"entities":[
+{
+"id":"1",
+"entity_name":"DB_LINK_ENT_DATEWAISE",
+"entity_enabled":"1",
+"incremental_load":"1",
+"entity_schedule":"oracle_server",
+"source_schema_name":"REPORT_USER",
+"source_table_name":"DB_LINK_ENT_DATEWAISE",
+"source_sql_query":"SELECT * FROM REPORT_USER.DB_LINK_ENT_DATEWAISE",
+"silver_date_query":"SELECT max(dhday) as maxdate FROM silver.db_link_ENT_DATEWAISE",
+"lake_zone":"Bronze",
+"lake_department":"ENT",
+"lake_source_system":"RDBMS",
+"enable_lake_history":"False",
+"lake_file_extension":".parquet",
+"bronze_retention_in_days":"365",
+"bronze_root_path":"/Bronze/ENT/RDBMS/DB_LINK_ENT_DATEWAISE/",
+"silver_transform_path":"/Shared/2 - data-analytics/Silver/ENT_DATEWAISE",
+"silver_config_files":[
+{
+"config_file":"DB_LINK_ENT_DATEWAISE.yaml",
+"table_drop_delete":""
+}
+],
+"gold_config_files":[
+{
+"config_file":"",
+"table_drop_delete":""
+}
+]
+},
+             {
+"id":"2",
+"entity_name":"DB_LINK_ITM_ENT_DAYWAISE",
+"entity_enabled":"1",
+"incremental_load":"1",
+"entity_schedule":"oracle_server",
+"source_schema_name":"REPORT_USER",
+"source_table_name":"DB_LINK_ITM_ENT_DAYWAISE",
+"source_sql_query":"SELECT * FROM REPORT_USER.DB_LINK_ITM_ENT_DAYWAISE",
+"silver_date_query":"SELECT max(dhday) as maxdate FROM silver.db_link_itm_ENT_DAYWAISE",
+"lake_zone":"Bronze",
+"lake_department":"ENT",
+"lake_source_system":"RDBMS",
+"enable_lake_history":"False",
+"lake_file_extension":".parquet",
+"bronze_retention_in_days":"365",
+"bronze_root_path":"/Bronze/ENT/RDBMS/DB_LINK_ITM_ENT_DAYWAISE/",
+"silver_transform_path":"/Shared/2 - data-analytics/Silver/ITM_ENT_DAYWAISE",
+"silver_config_files":[
+{
+"config_file":"DB_LINK_ITM_ENT_DAYWAISE.yaml",
+"table_drop_delete":""
+}
+],
+"gold_config_files":[
+{
+"config_file":"",
+"table_drop_delete":""
+}
+]
+},
+{
+"id":"3",
+"entity_name":"DB_LINK_ITM_ENT_DAYWEEK",
+"entity_enabled":"1",
+"incremental_load":"1",
+"entity_schedule":"oracle_server",
+"source_schema_name":"REPORT_USER",
+"source_table_name":"DB_LINK_ITM_ENT_DAYWEEK",
+"source_sql_query":"SELECT * FROM REPORT_USER.DB_LINK_ITM_ENT_DAYWEEK",
+"silver_date_query":"SELECT max(dhday) as maxdate FROM silver.db_link_itm_ENT_DAYWEEK",
+"lake_zone":"Bronze",
+"lake_department":"ENT",
+"lake_source_system":"RDBMS",
+"enable_lake_history":"False",
+"lake_file_extension":".parquet",
+"bronze_retention_in_days":"365",
+"bronze_root_path":"/Bronze/ENT/RDBMS/DB_LINK_ITM_ENT_DAYWEEK/",
+"silver_transform_path":"/Shared/2 - data-analytics/Silver/ITM_ENT_DAYWEEK",
+"silver_config_files":[
+{
+"config_file":"DB_LINK_ITM_ENT_DAYWEEK.yaml",
+"table_drop_delete":""
+}
+],
+"gold_config_files":[
+{
+"config_file":"",
+"table_drop_delete":""
+}
+]
+}
+        ]
+          }
+    ]
