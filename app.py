@@ -54,6 +54,16 @@ def get_template(source_name):
             return jsonify(data)
 
     return jsonify({"error": "Invalid source_name"})
+
+@app.route('/preview_template/<source_name>', methods = ['GET'])
+
+def preview_template(source_name):
+        with open("config1.json", 'r') as file:
+            data = json.load(file)
+            for i in range(len(data)):
+                if data[i]["source_name"] == source_name:
+                    return data[i]
+            return "Template not found"
    
 
 
