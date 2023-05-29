@@ -66,6 +66,17 @@ def preview_template(source_name):
                 if data[i]["source_name"] == source_name:
                     return data[i]
             return "Template not found"
+        
+@app.route('/editJSON', methods = ["POST"])
+def edit_json():
+     # Get the JSON object from the request
+    json_object = request.json
+
+    # Write the updated JSON data back to the file
+    with open('config1.json', 'w') as file:
+        json.dump(json_object, file, indent=4)
+
+    return jsonify({'message': 'JSON object added successfully'})
    
 
 
