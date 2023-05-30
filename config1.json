@@ -1,41 +1,37 @@
 [
     {
-        "source_name": "sharepoint_source",
-        "source_type": "sharepoint",
-        "datalake_container": "datalake",
-        "source_enabled": "1",
-        "entities": [
+        "bronze_retention_in_days": "245",
+        "bronze_root_path": "/Bronze/ENT/Master/ENT_KPI_MASTER/",
+        "enable_lake_history": "False",
+        "entity_enabled": "1",
+        "entity_name": "ENT_KPI_MASTER",
+        "entity_schedule": "sharepoint",
+        "gold_config_files": [
             {
-                "id": "1",
-                "entity_name": "ENT_KPI_MASTER",
-                "entity_enabled": "1",
-                "entity_schedule": "sharepoint",
-                "source_path": "sharepoint",
-                "source_filename": "ENT_KPI_MASTER",
-                "source_filetype": "xls",
-                "source_base_url": "URL/ Documents/ENT/MASTER_KPI_SHEET/ENT_KPI_MASTER.xls')/$value",
-                "lake_zone": "Bronze",
-                "lake_department": "ENT",
-                "lake_source_system": "Master",
-                "enable_lake_history": "False",
-                "lake_file_extension": ".xls",
-                "bronze_retention_in_days": "365",
-                "bronze_root_path": "/Bronze/ENT/Master/ENT_KPI_MASTER/",
-                "silver_transform_path": "/Shared/2 - data-analytics/Silver/ENT_KPI_MASTER",
-                "silver_config_files": [
-                    {
-                        "config_file": "dim_ENT.yaml",
-                        "table_drop_delete": ""
-                    }
-                ],
-                "gold_config_files": [
-                    {
-                        "config_file": "",
-                        "table_drop_delete": ""
-                    }
-                ]
+                "config_file": "",
+                "table_drop_delete": ""
             }
-        ]
+        ],
+        "id": "1",
+        "lake_department": "ENT",
+        "lake_file_extension": ".xls",
+        "lake_source_system": "Master",
+        "lake_zone": "Bronze",
+        "silver_config_files": [
+            {
+                "config_file": "dim_ENT.yaml",
+                "table_drop_delete": ""
+            },
+            {
+                "config_file": null,
+                "table_drop_delete": null
+            }
+        ],
+        "silver_transform_path": "/Shared/2 - data-analytics/Silver/ENT_KPI_MASTER",
+        "source_base_url": "URL/ Documents/ENT/MASTER_KPI_SHEET/ENT_KPI_MASTER.xls')/$value",
+        "source_filename": "ENT_KPI_MASTER",
+        "source_filetype": "xls",
+        "source_path": "sharepoint"
     },
     {
         "source_name": "oracle_RDBMS",
@@ -134,53 +130,6 @@
                 "silver_config_files": [
                     {
                         "config_file": "DB_LINK_ITM_ENT_DAYWEEK.yaml",
-                        "table_drop_delete": ""
-                    }
-                ],
-                "gold_config_files": [
-                    {
-                        "config_file": "",
-                        "table_drop_delete": ""
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "source_name": "hi",
-        "source_type": "how",
-        "source_database_server": "is",
-        "source_database_port": "you",
-        "source_database_sid": "",
-        "source_database_name": "",
-        "source_database_username": "",
-        "source_database_password_secretname": "",
-        "datalake_url": "",
-        "datalake_secretname": "",
-        "datalake_container": "",
-        "source_enabled": "",
-        "entities": [
-            {
-                "id": "",
-                "entity_name": "",
-                "entity_enabled": "",
-                "incremental_load": "",
-                "entity_schedule": "12345",
-                "source_schema_name": "",
-                "source_table_name": "",
-                "source_sql_query": "",
-                "silver_date_query": "",
-                "lake_zone": "",
-                "lake_department": "",
-                "lake_source_system": "",
-                "enable_lake_history": "",
-                "lake_file_extension": "",
-                "bronze_retention_in_days": "",
-                "bronze_root_path": "",
-                "silver_transform_path": "",
-                "silver_config_files": [
-                    {
-                        "config_file": "",
                         "table_drop_delete": ""
                     }
                 ],

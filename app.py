@@ -67,14 +67,20 @@ def preview_template(source_name):
                     return data[i]
             return "Template not found"
         
-@app.route('/editJSON', methods = ["POST"])
-def edit_json():
+@app.route('/editJSON/<source_name>', methods = ["POST"])
+def edit_json(source_name):
      # Get the JSON object from the request
     json_object = request.json
 
+    with open('config1.json', 'r') as file:
+        existing_data = json.load(file)
+
+        for i in range(len(existing_data)):
+            if existing_data[i]["source_name"] == source_name:
+                existing_data[i] = json_object
     # Write the updated JSON data back to the file
     with open('config1.json', 'w') as file:
-        json.dump(json_object, file, indent=4)
+        json.dump(existing_data, file, indent=4)
 
     return jsonify({'message': 'JSON object added successfully'})
    
